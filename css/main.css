@@ -1,19 +1,37 @@
 #battery{
     width: 2rem !important;
 }
-#columns {
+#box2,#box1 {
 	column-width: 40%;
     column-gap: 8px;
-    column-count: 2;
+    column-count: 4;
     width: 90%;
 	max-width: 425px;
-	margin: 50px auto;
+    margin: 3px auto;
 }
 
-div#columns img {
-	width: 100%; height: auto;
+#middle{
+    text-align: center !important;
+}
+
+#footer {
+    position:fixed;
+    bottom:0;
+    width:100%;
+    z-index:1;
+} 
+
+div#box2 img, div#box1 img {
+    width: 100%; 
+    height: auto;
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 15px;
 	margin-bottom: 5px;
 }
-    
+
+
+
+.shihiro{
+    cursor: move;
+}
+

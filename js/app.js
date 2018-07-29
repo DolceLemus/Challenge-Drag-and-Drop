@@ -24,6 +24,16 @@ const batteryLevel = () => {
     });
 }
 
+const start = (event) =>  {
+    event.dataTransfer.setData("doggo", i.target.id);
+}
+
+const drop = (event) => {
+    event.preventDefault();
+    let data = event.dataTransfer.getData("doggo");
+    event.target.appendChild(document.getElementById(data));
+}
+
 
 batteryLevel();
 time();
