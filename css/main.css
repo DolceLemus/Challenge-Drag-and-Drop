@@ -1,5 +1,5 @@
 body{
-    background-color: dimgray;
+    background-color: rgb(66, 36, 36);
 }
 #battery{
     width: 2rem !important;
@@ -21,10 +21,9 @@ body{
 div#box2 img {
     width: 100%; 
     height: auto;
-	border-bottom: 1px solid #ccc;
 	padding: .4em;
     margin: .1em;
-    background-color: rgba(106, 208, 198, 0.529);
+    background-color: rgba(224, 131, 103, 0.529);
 
 }
 
@@ -57,13 +56,13 @@ div#box2 img {
 #b1,#b2,#b3{
     height: 7em;
     width: 100%;
-    background-color: cadetblue;
+    background-color: rgba(224, 131, 103, 0.529);
 }
 
 #b4,#b5{
     height: 10.5em;
     width: 100%;
-    background-color: cadetblue;
+    background-color: rgba(224, 131, 103, 0.529);
 }
 
 .dropImage{

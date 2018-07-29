@@ -38,7 +38,7 @@ const drop = (ev) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     // explanation : ev.target.appendChild(document.getElementById(data)); ev.target fue reemplazado por this para que no fueda posible hacer un drop dentro de otra imagen y esta desaparezca
-    this.appendChild(document.getElementById(data));
+    ev.target.appendChild(document.getElementById(data));
     // Utilicé JQuery por metodos prácticos
     $("[id*=element]").addClass("dropImage");
 
