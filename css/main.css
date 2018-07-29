@@ -1,19 +1,36 @@
+body{
+    background-color: dimgray;
+}
 #battery{
     width: 2rem !important;
 }
-#box2,#box1 {
+
+/* contener de abajo */
+#box2 {
 	column-width: 40%;
     column-gap: 8px;
-    column-count: 4;
+    column-count: 3;
     width: 90%;
 	max-width: 425px;
     margin: 3px auto;
+    max-height: auto;
+    min-height: 10em;
+
 }
 
-#middle{
-    text-align: center !important;
+div#box2 img {
+    width: 100%; 
+    height: auto;
+	border-bottom: 1px solid #ccc;
+	padding: .4em;
+    margin: .1em;
+    background-color: rgba(106, 208, 198, 0.529);
+
 }
 
+.shihiro{
+    cursor: move;
+}
 #footer {
     position:fixed;
     bottom:0;
@@ -21,15 +38,38 @@
     z-index:1;
 } 
 
-div#box2 img, div#box1 img {
-    width: 100%; 
-    height: auto;
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 15px;
-	margin-bottom: 5px;
+/* contenedor de arriba */
+#cont{
+    width: 90%;
+	max-width: 425px;
+    margin: 3px auto;
+    height: 21em;
+} 
+
+#cont-one{
+    width: 30%;
 }
 
-.shihiro{
-    cursor: move;
+#cont-two{
+    width: 68%;
 }
+
+#b1,#b2,#b3{
+    height: 7em;
+    width: 100%;
+    background-color: cadetblue;
+}
+
+#b4,#b5{
+    height: 10.5em;
+    width: 100%;
+    background-color: cadetblue;
+}
+
+.dropImage{
+    max-height: 100% !important;
+}
+
+
+
 
