@@ -17,7 +17,7 @@ const batteryLevel = () => {
         if (battery === NaN || battery === null) {
             document.getElementById("level").textContent = "";
         } else {
-            document.getElementById("level").textContent = level;
+            document.getElementById("level").textContent = level.toFixed(2);
             // se le añade el valor de levelNumber en una escala a 1
             document.getElementById("battery").setAttribute('value',levelNumber);
         }
