@@ -1,3 +1,6 @@
+"use strict";
+let id ="";
+let id2 =""; 
 const time = () => {
     let today = new Date();
     let hour = today.getHours();
@@ -12,27 +15,33 @@ const batteryLevel = () => {
     //se utiliza promesa para seguir con el funcionamiento una vez obtenido el dato con getBattery();
     //getBattery() es obsoleto, solo funciona en algunos navegadores, es por eso que se agrega un if;
     let battery = navigator.getBattery().then(function (battery) {
-        let level = battery.level * 100 + "%";
+        let level = battery.level.toFixed(0) * 100 + "%";
         let levelNumber = battery.level;
         if (battery === NaN || battery === null) {
             document.getElementById("level").textContent = "";
         } else {
-            document.getElementById("level").textContent = level.toFixed(2);
+            document.getElementById("level").textContent = level;
             // se le añade el valor de levelNumber en una escala a 1
             document.getElementById("battery").setAttribute('value',levelNumber);
         }
     });
 }
 
-const start = (event) =>  {
-    event.dataTransfer.setData("doggo", i.target.id);
+// box1
+const allowDrop = (event) => {
+    event.preventDefault();
 }
 
 const drop = (event) => {
-    event.preventDefault();
-    let data = event.dataTransfer.getData("doggo");
-    event.target.appendChild(document.getElementById(data));
+    event.target.append(document.getElementById(id));
 }
+
+const dragStart = (event) =>  {
+    id = event.target.id;
+}
+
+
+
 
 
 batteryLevel();
