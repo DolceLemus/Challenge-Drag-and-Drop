@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- icono de la pestaña -->
-    <link rel="shortcut icon" href="assets/icono.ico" />
+    <link rel="shortcut icon" href="assets/main.ico" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
@@ -28,7 +28,7 @@
             <div class="col-1">
                 <i class="fas fa-signal"></i>
             </div>
-            <div class="pl-1">
+            <div class="pl-2">
                 <span id="level"></span>
             </div>
             <div class="pl-1">
@@ -36,12 +36,15 @@
             </div>
         </nav>
     </header>
-    <section class="row">
-        <div class="" id="box1" ondrop="drop(event)" >
-            <img class="shihiro" src="assets/1.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/2.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/3.jpg" draggable="true" ondragstart="start(event)">
-
+    <section id="cont" class="row">
+        <div id="cont-one" class="">
+            <div class="card p-1 rounded-0" style="max-height: 100%" id="b1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="card p-1 rounded-0" id="b2" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="card p-1 rounded-0" id="b3" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+        </div>
+        <div id="cont-two" class="">
+            <div class="card p-1 rounded-0" id="b4" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <div class="card p-1 rounded-0" id="b5" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
         </div>
     </section>
 
@@ -50,39 +53,36 @@
             <i class="fas fa-camera-retro"></i> PHOTO BOOTH</span>
     </nav>
     <section class="row p-0 m-0" id="container-second">
-        <div class="pl-10" id="box2" ondrop="drop(event)">
-            <img class="shihiro" src="assets/4.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/5.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/6.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/7.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/8.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/9.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/10.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/11.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/12.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/13.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/14.jpg" draggable="true" ondragstart="start(event)">
-            <img class="shihiro" src="assets/15.jpg" draggable="true" ondragstart="start(event)">
+        <div class="pl-10" id="box2" ondragover="allowDrop(event)"  ondrop="drop(event)">
+            <img class="shihiro" id="element" src="assets/1.jpg" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element1" src="assets/2.jpg" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element2" src="assets/3.gif" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element3" src="assets/4.gif" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element4" src="assets/5.jpg" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element5" src="assets/6.jpg" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element6" src="assets/7.jpg" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element7" src="assets/8.jpg" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element8" src="assets/9.jpg" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element9" src="assets/10.jpg" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element10" src="assets/11.gif" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element11" src="assets/12.jpg" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element12" src="assets/13.gif" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element13" src="assets/14.gif" draggable="true" ondragstart="dragStart(event)">
+            <img class="shihiro" id="element14" src="assets/15.jpg" draggable="true" ondragstart="dragStart(event)">
         </div>
     </section>
-    <nav class="navbar row navbar-light bg-dark text-white" id="footer">
+    <nav class="navbar m-0 row navbar-light bg-dark text-white" id="footer">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                CAMERA ROLL
+                CAMERA
             </a>
-            <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div> -->
         <span class="nav-link">FACES</span>
         <span class="nav-link" >RECENTS</span>
     
     
     </nav>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 
