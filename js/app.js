@@ -46,5 +46,18 @@ const drop = (ev) => {
 
 // --------------------------------------------------------
 
+$(function() {
+    $( "[id*=element]" ).draggable();
+    $( "[id*=b]" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+      }
+    });
+  });
+
+//--------------------------------------------------------
 batteryLevel();
 time();
