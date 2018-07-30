@@ -49,11 +49,6 @@ const dragStart = (ev) => {
     draged = ev.target;
 }
 
-
-
-
-
-
 // drop function
 const drop = (ev) => {
     ev.preventDefault();
