@@ -1,4 +1,17 @@
 "use strict";
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyCAD63skf5RzQiGb9czLGODsoqjZIvMo00",
+    authDomain: "inta-collage-lemus.firebaseapp.com",
+    databaseURL: "https://inta-collage-lemus.firebaseio.com",
+    projectId: "inta-collage-lemus",
+    storageBucket: "inta-collage-lemus.appspot.com",
+    messagingSenderId: "389980962122"
+};
+firebase.initializeApp(config);
+
+
+//   time in realtime
 const time = () => {
     let today = new Date();
     let hour = today.getHours();
@@ -8,11 +21,11 @@ const time = () => {
     document.getElementById("minutes").innerHTML = minutes;
 }
 
-
+// battery in real time
 const batteryLevel = () => {
     //se utiliza promesa para seguir con el funcionamiento una vez obtenido el dato con getBattery();
     //getBattery() es obsoleto, solo funciona en algunos navegadores, es por eso que se agrega un if;
-    let battery = navigator.getBattery().then(function (battery) {
+    let battery = navigator.getBattery().then((battery) => {
         let level = battery.level * 100;
         let levelPerc = level.toFixed(0) + "%";
         let levelNumber = battery.level;
@@ -26,14 +39,17 @@ const batteryLevel = () => {
     });
 }
 
+// allow drop function
 const allowDrop = (ev) => {
     ev.preventDefault();
 }
 
+// start to drag (movement) function
 const dragStart = (ev) => {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
+// drop function
 const drop = (ev) => {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
@@ -44,19 +60,21 @@ const drop = (ev) => {
 
 }
 
-// --------------------------------------------------------
+$(document).ready(() => {
 
-$(function() {
-    $( "[id*=element]" ).draggable();
-    $( "[id*=b]" ).droppable({
-      drop: function( event, ui ) {
-        $( this )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped!" );
-      }
-    });
-  });
+    $("#logout").click(() => {
+        firebase.auth().signOut();
+    })
+
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            $("#user").text(user.email);
+        } else {
+            window.location = "../index.html";
+        }
+    })
+});
+
 
 //--------------------------------------------------------
 batteryLevel();

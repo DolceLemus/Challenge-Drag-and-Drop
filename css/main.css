@@ -15,7 +15,7 @@ body{
     margin: 3px auto;
     max-height: auto;
     min-height: 10em;
-    margin-bottom: 5em;
+    margin-bottom: 2em;
 
 }
 
@@ -70,6 +70,11 @@ div#box2 img {
     max-height: 100% !important;
 }
 
+#userLog{
+    margin-bottom: 5em !important;
+}
 
-
-
+#user{
+    height: 2em;
+    color:white;
+}
