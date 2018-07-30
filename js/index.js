@@ -12,8 +12,8 @@ firebase.initializeApp(config);
 
 $(document).ready(() => {
     $("#login").click(() => {
-        var email = $("#email").val();
-        var password = $("#password").val();
+        let email = $("#email").val();
+        let password = $("#password").val();
 
         firebase.auth().signInWithEmailAndPassword(email, password)
             .catch((error) => {
@@ -26,22 +26,26 @@ $(document).ready(() => {
     })
 
     $("#signup").click(() => {
-        var email = $("#email").val();
-        var password = $("#password").val();
+        let email = $("#email").val();
+        let password = $("#password").val();
+
+        if (password == 123456 || password == null || password.length <= 6 ) {
+            swal("Error al ingresar contraseña", "La contraseña no puede ser 123456, campo vacío o tener menos de 6 caracteres", "error");
+        } else{
+            firebase.auth().onAuthStateChanged((user) => {
+                if (user) {
+                    $("#user").text(user.email);
+                    window.location = "views/app.html";
+                } else {
+                    $("#user").text("");
+                }
+            })
+        }
 
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .catch((error) => {
-                alert(error.message);
+                console.log(error.message);
             })
 
-    })
-
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            $("#user").text(user.email);
-            window.location = "views/app.html";
-        } else {
-            $("#user").text("");
-        }
     })
 });

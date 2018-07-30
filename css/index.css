@@ -19,4 +19,8 @@ body {
     margin-top: 1em;
 }
 
+#email, #password{
+    background-color: rgb(255, 240, 240,0.8)
+}
+
 
