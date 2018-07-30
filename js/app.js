@@ -53,14 +53,14 @@ const dragStart = (ev) => {
 const drop = (ev) => {
     ev.preventDefault();
     let data = ev.dataTransfer.getData("text");
+
     console.log(ev.target);
-    if (ev.target.childNodes.length <= 0) {
+    if (ev.currentTarget.childNodes.length <= 0 ) {
         // explanation : ev.target.appendChild(document.getElementById(data)); ev.target fue reemplazado por this para que no fueda posible hacer un drop dentro de otra imagen y esta desaparezca
         ev.target.appendChild(document.getElementById(data));
         // Utilicé JQuery por metodos prácticos
         $(document.getElementById(data)).addClass("dropImage");
         //lista de hijos > 0
-        console.log(ev.target.childNodes.length);
     } else {
         return false;
     }
