@@ -52,20 +52,24 @@ const dragStart = (ev) => {
 // drop function
 const drop = (ev) => {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    // explanation : ev.target.appendChild(document.getElementById(data)); ev.target fue reemplazado por this para que no fueda posible hacer un drop dentro de otra imagen y esta desaparezca
-    ev.target.appendChild(document.getElementById(data));
-    // Utilicé JQuery por metodos prácticos
-    $("[id*=element]").addClass("dropImage");
+    let data = ev.dataTransfer.getData("text");
 
+    if (ev.target.childNodes.length <= 0) {
+        // explanation : ev.target.appendChild(document.getElementById(data)); ev.target fue reemplazado por this para que no fueda posible hacer un drop dentro de otra imagen y esta desaparezca
+        ev.target.appendChild(document.getElementById(data));
+        // Utilicé JQuery por metodos prácticos
+        $("[id*=element]").addClass("dropImage");
+        //lista de hijos > 0
+        console.log(ev.target.childNodes.length);
+    } else {
+        return false;
+    }
 }
 
 $(document).ready(() => {
-
     $("#logout").click(() => {
         firebase.auth().signOut();
     })
-
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             $("#user").text(user.email);
