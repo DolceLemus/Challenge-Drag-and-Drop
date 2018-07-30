@@ -29,8 +29,8 @@ const batteryLevel = () => {
         let level = battery.level * 100;
         let levelPerc = level.toFixed(0) + "%";
         let levelNumber = battery.level;
-        if (battery === NaN || battery === null) {
-            document.getElementById("level").textContent = "";
+        if (battery === 0) {
+            document.getElementById("level").textContent = "nD";
         } else {
             document.getElementById("level").textContent = levelPerc;
             // se le añade el valor de levelNumber en una escala a 1
