@@ -10,7 +10,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
+let draged = null;
 //   time in realtime
 const time = () => {
     let today = new Date();
@@ -46,9 +46,10 @@ const allowDrop = (ev) => {
 
 // start to drag (movement) function
 const dragStart = (ev) => {
-    ev.dataTransfer.setData("text", ev.target.id);
-    // ev.document.addEventListener("dragstart",dragStart);
+    draged = ev.target;
 }
+
+
 
 
 
@@ -56,14 +57,11 @@ const dragStart = (ev) => {
 // drop function
 const drop = (ev) => {
     ev.preventDefault();
-    let data = ev.dataTransfer.getData("text");
-
-    console.log(ev.target);
+    let data = draged;
     if (ev.currentTarget.childNodes.length <= 0 ) {
-        // explanation : ev.target.appendChild(document.getElementById(data)); ev.target fue reemplazado por this para que no fueda posible hacer un drop dentro de otra imagen y esta desaparezca
-        ev.target.appendChild(document.getElementById(data));
+        ev.target.appendChild(draged);
         // Utilicé JQuery por metodos prácticos
-        $(document.getElementById(data)).addClass("dropImage");
+        $(draged).addClass("dropImage");
     } else {
         return false;
     }
@@ -80,9 +78,14 @@ $(document).ready(() => {
             window.location = "../index.html";
         }
     })
+
+    $(".shihiro").on("dragstart",dragStart);
+    $(".contenedor-img").on("drop",drop);
+    $(".contenedor-img").on("dragover",allowDrop);
 });
 
 
 //--------------------------------------------------------
 batteryLevel();
 time();
+
