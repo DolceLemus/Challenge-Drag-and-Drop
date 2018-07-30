@@ -47,7 +47,11 @@ const allowDrop = (ev) => {
 // start to drag (movement) function
 const dragStart = (ev) => {
     ev.dataTransfer.setData("text", ev.target.id);
+    // ev.document.addEventListener("dragstart",dragStart);
 }
+
+
+
 
 // drop function
 const drop = (ev) => {
@@ -60,7 +64,6 @@ const drop = (ev) => {
         ev.target.appendChild(document.getElementById(data));
         // Utilicé JQuery por metodos prácticos
         $(document.getElementById(data)).addClass("dropImage");
-        //lista de hijos > 0
     } else {
         return false;
     }
