@@ -7,7 +7,6 @@ body{
 
 /* contener de abajo */
 #box2 {
-	column-width: 40%;
     column-gap: 8px;
     column-count: 3;
     width: 90%;
