@@ -25,28 +25,31 @@ $(document).ready(() => {
         firebase.auth().signOut();
     })
 
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            $("#user").text(user.email);
+            window.location = "views/app.html";
+        } else {
+            $("#user").text("");
+        }
+    })
+
+
     $("#signup").click(() => {
         let email = $("#email").val();
         let password = $("#password").val();
 
-        if (password == 123456 ) {
-            swal("Error "," The password can not be 123456, empty field or have less than 6 characters", "error");
+        if (password == 123456) {
+            swal("Error ", " The password can not be 123456, empty field or have less than 6 characters", "error");
             let passwordInput = $("#password").val("");
-        } else{
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    $("#user").text(user.email);
-                    window.location = "views/app.html";
-                } else {
-                    $("#user").text("");
-                }
+        } else {
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+            .catch((error) => {
+                swal("Error", error.message, "error");
             })
         }
 
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-            .catch((error) => {
-                swal("Error",error.message, "error");
-            })
+       
 
     })
 });
