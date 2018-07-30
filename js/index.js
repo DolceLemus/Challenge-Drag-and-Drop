@@ -12,12 +12,12 @@ firebase.initializeApp(config);
 
 $(document).ready(() => {
     $("#login").click(() => {
-        var email = $("#email").val();
-        var password = $("#password").val();
+        let email = $("#email").val();
+        let password = $("#password").val();
 
         firebase.auth().signInWithEmailAndPassword(email, password)
             .catch((error) => {
-                alert(error.message);
+                swal(error.message);
             })
 
     })
@@ -26,22 +26,27 @@ $(document).ready(() => {
     })
 
     $("#signup").click(() => {
-        var email = $("#email").val();
-        var password = $("#password").val();
+        let email = $("#email").val();
+        let password = $("#password").val();
+
+        if (password == 123456 ) {
+            swal("Error "," The password can not be 123456, empty field or have less than 6 characters", "error");
+            let passwordInput = $("#password").val("");
+        } else{
+            firebase.auth().onAuthStateChanged((user) => {
+                if (user) {
+                    $("#user").text(user.email);
+                    window.location = "views/app.html";
+                } else {
+                    $("#user").text("");
+                }
+            })
+        }
 
         firebase.auth().createUserWithEmailAndPassword(email, password)
             .catch((error) => {
-                alert(error.message);
+                swal("Error",error.message, "error");
             })
 
-    })
-
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            $("#user").text(user.email);
-            window.location = "views/app.html";
-        } else {
-            $("#user").text("");
-        }
     })
 });
