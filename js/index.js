@@ -44,12 +44,12 @@ $(document).ready(() => {
             let passwordInput = $("#password").val("");
         } else {
             firebase.auth().createUserWithEmailAndPassword(email, password)
-            .catch((error) => {
-                swal("Error", error.message, "error");
-            })
+                .catch((error) => {
+                    swal("Error", error.message, "error");
+                })
         }
 
-       
+
 
     })
 });
